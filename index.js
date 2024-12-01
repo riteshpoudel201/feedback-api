@@ -2,11 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import axios from "axios";
-const PORT = 8000;
+dotenv.config();
+
+const PORT = process.env.PORT || 8000;
 const app= express();
 app.use(express.json());
 app.use(cors())
-dotenv.config();
 app.post("/feedback", async (req,res)=>{
     const { from, to, name, email, messageBody} = req.body;
 
