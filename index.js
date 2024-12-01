@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 8000;
 const app= express();
 app.use(express.json());
 app.use(cors())
+app.get('/',(req,res)=>{
+    res.send("You need to pass { from, to, email, messageBody} in post request. Here, mesageBody is the HTML you want to send via resend to your email account.")
+})
 app.post("/feedback", async (req,res)=>{
     const { from, to, name, email, messageBody} = req.body;
 
